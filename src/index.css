@@ -1,0 +1,256 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  font-size: 1.4em;
+
+}
+
+h1 {
+  font-size: 1.4em;
+}
+
+h2,
+p {
+  font-size: 1em;
+}
+
+.side {
+  background: aliceblue;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  z-index: 200;
+  /* background: transparent; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.player {
+  cursor: pointer;
+  width: 600px;
+  background: aliceblue;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  padding: 1.3em;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0px -2px 20px 10px #0067c354;
+}
+
+.title {
+  text-align: center;
+  color: #0067c3;
+
+}
+
+.item {
+
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;
+  height: 13%;
+  width: 100%;
+  border-bottom: 1px solid blanchedalmond;
+  border-top: 1px solid blanchedalmond;
+  padding: 1em;
+  color: #5d5d5d;
+  background: #ebebeb47;
+}
+
+.info {
+  align-items: center;
+  display: flex;
+  gap: 2em;
+
+}
+
+.info img {
+  height: 100%;
+}
+
+/* CSS */
+.button-54 {
+  background-color: #ffffff;
+
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px,  1px 1px 0px 0px, 2px 2px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-54:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+
+
+.radio__list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.radio_item {
+  width: 30%;
+}
+
+.star,
+.ellipse {
+  display: flex;
+  gap: 0.4em;
+  text-align: center;
+  transition: 0.4s ease-in-out;
+
+
+}
+
+.ellipse::before {
+  cursor: pointer;
+  content: "";
+  display: block;
+  width: 20%;
+  clip-path: circle(50% at 50% 50%);
+  aspect-ratio: 1/1;
+  background-color: rgb(255, 255, 255);
+  transition: 0.4s ease-in-out;
+}
+
+.star::before {
+  cursor: pointer;
+  
+  transition: 0.4s ease-in-out;
+
+  content: "";
+  display: block;
+  width: 20%;
+  clip-path: polygon(34% 35%, 0 48%, 33% 61%, 48% 100%, 65% 61%, 100% 50%, 63% 33%, 49% 0);
+  aspect-ratio: 1/1;
+  background-color: rgb(255, 255, 255);
+}
+
+input:checked~.star::before {
+  background-color: rgb(0 217 185);
+
+}
+input:checked~.ellipse::before {
+  background-color: rgb(0 217 185);
+
+}
+
+input:checked~.star {
+  color: rgb(6, 161, 138)
+
+}
+
+input:checked~.ellipse{
+  color: rgb(3, 180, 154);
+
+}
+
+@media (min-width: 768px) {
+  .button-54 {
+    padding: 0.25em 0.75em;
+  }
+}
+
+
+
+
+.wrapper {
+  margin: 8px 0;
+}
+
+.state {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 1e-5;
+  pointer-events: none;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  color: #394a56;
+}
+
+.text {
+  margin-left: 16px;
+  opacity: .6;
+  transition: opacity .2s linear, transform .2s ease-out;
+}
+
+.indicator {
+  position: relative;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+
+  overflow: hidden;
+}
+
+.indicator::before,
+.indicator::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  height: 80%;
+  width: 80%;
+  border-radius: 50%;
+}
+
+.indicator::before {
+  box-shadow:
+    -4px -2px 4px 0px rgb(3, 180, 154),
+    4px 2px 8px 0px rgba(19, 172, 100, 0.479);
+}
+
+.indicator::after {
+  background-color: rgb(3, 180, 154);;
+  box-shadow:
+    -4px -2px 4px 0px rgb(3, 180, 154),
+    4px 2px 8px 0px rgb(3, 180, 154);
+  transform: scale3d(1, 1, 1);
+  transition: opacity .25s ease-in-out, transform .25s ease-in-out;
+    opacity: 0;
+}
+
+.state:checked ~ .label .indicator::after {
+  transform: scale3d(.975, .975, 1) translate3d(0, 10%, 0);
+  opacity: 1;
+}
+
+.state:focus ~ .label .text {
+  transform: translate3d(8px, 0, 0);
+  opacity: 1;
+}
+
+.label:hover .text {
+  opacity: 1;
+}
